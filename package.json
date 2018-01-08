@@ -8,6 +8,10 @@
     "lint": "eslint .",
     "fix": "eslint --fix ."
   },
+  "pre-commit": [
+    "fix",
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hfimy/react-cnode.git"
@@ -22,6 +26,7 @@
     "babel-eslint": "^8.1.2",
     "eslint": "^4.15.0",
     "eslint-plugin-react": "^7.5.1",
+    "pre-commit": "^1.2.2",
     "webpack": "^3.10.0"
   }
 }
