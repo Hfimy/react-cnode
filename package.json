@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "fix": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,9 @@
   },
   "homepage": "https://github.com/Hfimy/react-cnode#readme",
   "devDependencies": {
+    "babel-eslint": "^8.1.2",
+    "eslint": "^4.15.0",
+    "eslint-plugin-react": "^7.5.1",
     "webpack": "^3.10.0"
   }
 }
