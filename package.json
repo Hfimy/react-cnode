@@ -7,10 +7,11 @@
     "lint": "eslint .",
     "fix": "eslint --fix .",
     "clear": "rimraf dist",
+    "dev": "cross-env NODE_ENV=development && webpack-dev-server --config build/webpack.dev.js",
     "build:client": "webpack --config build/webpack.prod.js",
     "build:ssr": "webpack --config build/webpack.ssr.js",
     "build": "npm run clear && npm run build:client && npm run build:ssr",
-    "start": "node server/app.js"
+    "start": "node server/app1.js"
   },
   "pre-commit": [
     "fix",
@@ -33,12 +34,15 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
+    "cross-env": "^5.1.3",
     "eslint": "^4.15.0",
     "eslint-plugin-react": "^7.5.1",
     "html-webpack-plugin": "^2.30.1",
     "pre-commit": "^1.2.2",
+    "react-hot-loader": "^3.1.3",
     "rimraf": "^2.6.2",
     "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.0",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {

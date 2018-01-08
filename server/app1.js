@@ -18,7 +18,7 @@ app.use(koaStaticPlus(path.resolve(__dirname, '../dist'), {
 
 router.get('*', async (ctx, next) => {
     const appString = ReactSSR.renderToString(ssr);
-    ctx.body = template.replace('<app></app>', appString)
+    ctx.body = template.replace('<!-- app -->', appString)
 })
 
 app.use(router.routes())
