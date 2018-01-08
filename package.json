@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "fix": "eslint --fix ."
+    "fix": "eslint --fix .",
+    "build": "webpack"
   },
   "pre-commit": [
     "fix",
@@ -23,10 +24,20 @@
   },
   "homepage": "https://github.com/Hfimy/react-cnode#readme",
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.1.2",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
     "eslint": "^4.15.0",
     "eslint-plugin-react": "^7.5.1",
+    "html-webpack-plugin": "^2.30.1",
     "pre-commit": "^1.2.2",
     "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }
