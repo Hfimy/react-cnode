@@ -8,7 +8,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'ssr.js',
-        publicPath: '',
+        publicPath: '/public',
         libraryTarget: 'commonjs2',//模块加载方案
     },
     module: {

@@ -9,7 +9,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].[hash:8].js',
-        publicPath: '',//输出解析文件的目录，url相对于HTML页面
+        publicPath: '/public',//输出解析文件的目录，url相对于HTML页面
     },
     module: {
         rules: [
@@ -24,7 +24,7 @@ module.exports = {
         // new CleanWebpackPlugin(['../dist']),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../client/template.html'),
-            favicon: path.resolve(__dirname, '../client/favicon.ico')
+            favicon: path.resolve(__dirname, '../client/favicon.ico'),
         })
     ]
 };
