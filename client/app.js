@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{Component} from 'react';//eslint-disable-line
 
 export default class App extends Component{
     render(){
@@ -6,6 +6,6 @@ export default class App extends Component{
             <div>
                 hello,world!
             </div>
-        )
+        );
     }
 }

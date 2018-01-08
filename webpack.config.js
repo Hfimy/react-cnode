@@ -27,4 +27,4 @@ module.exports = {
             favicon: path.resolve(__dirname, 'client/favicon.ico')
         })
     ]
-}
+};
