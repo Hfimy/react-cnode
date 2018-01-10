@@ -7,9 +7,9 @@ module.exports = {
         app: path.resolve(__dirname, '../client/index.js')
     },
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, '../front-render-dist'),
         filename: '[name].[hash:8].js',
-        publicPath: '/public',//输出解析文件的目录，url相对于HTML页面
+        // publicPath: '/public/',//输出解析文件的目录，url相对于HTML页面   //在模块热替换中，此处隐藏了一个坑
     },
     module: {
         rules: [
@@ -23,8 +23,7 @@ module.exports = {
     plugins: [
         // new CleanWebpackPlugin(['../dist']),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../client/template.html'),
-            favicon: path.resolve(__dirname, '../client/favicon.ico'),
+            template: path.resolve(__dirname, '../client/template.html')
         })
     ]
 };

@@ -1,2 +1,6 @@
 node_modules
 dist
+server-render-dist
+front-render-dist
+server-render-config
+server/util

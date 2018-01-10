@@ -10,24 +10,23 @@ module.exports = merge(common, {
         'react-hot-loader/patch',
         path.resolve(__dirname, '../client/index.js')
     ],
-    devtool: 'source-map',
+    
     devServer: {
         host: '0.0.0.0',
         port: 521,
-        contentBase: path.resolve(__dirname, '../dist'),
-        historyApiFallback: {
-            index: '/public/index.html'
-        },
+        contentBase: path.resolve(__dirname, '../front-render-dist'),
+        historyApiFallback: true,
         hot: true,
         overlay: {
             warnings: true,
             errors: true,
         },
-        publicPath: '/public'
+        // publicPath: '/public',
     },
+    devtool:'source-map',
     plugins: [
         new webpack.DefinePlugin({
-            __DEV__: isDev
+            '__DEV__': isDev
         }),
         new webpack.HotModuleReplacementPlugin(),
     ]

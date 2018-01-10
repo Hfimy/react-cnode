@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     target: 'node',
@@ -6,7 +7,7 @@ module.exports = {
         app: path.resolve(__dirname, '../client/ssr.js'),
     },
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, '../server-render-dist'),
         filename: 'ssr.js',
         // publicPath: '/public',
         libraryTarget: 'commonjs2',//模块加载方案
