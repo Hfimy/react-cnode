@@ -1,11 +1,3 @@
-import React,{Component} from 'react';//eslint-disable-line
+import React from 'react';
 
-export default class App extends Component{
-    render(){
-        return(
-            <div>
-                hello,wojfdasrld!
-            </div>
-        );
-    }
-}
+export default () => (<div>HelloWorld!</div>);

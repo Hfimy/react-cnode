@@ -57,5 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# 自定义
 dist
-
+server/node_modules

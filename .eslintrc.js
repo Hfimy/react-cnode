@@ -1,11 +1,12 @@
 module.exports = {
     "env": {
         "browser": true,
-        "node": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "node": true
     },
-    "extends": "eslint:recommended",
+    // "extends": "eslint:recommended",
+    "extends": "airbnb",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -33,6 +34,14 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "React|App",
+            }
+        ],
+        "react/jsx-filename-extension": [0],
     }
 };

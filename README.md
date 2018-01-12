@@ -1,1 +1,1 @@
-# react-cnode
+# react-ssr-template

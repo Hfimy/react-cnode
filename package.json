@@ -1,21 +1,19 @@
 {
-  "name": "react-cnode",
+  "name": "react-ssr-template",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint --fix .",
-    "clear:fr": "rimraf front-render-dist",
-    "dev:fr": "cross-env NODE_ENV=development && webpack-dev-server --config front-render-config/webpack.dev.js",
-    "build:fr": "npm run clear:fr && webpack --config front-render-config/webpack.prod.js",
-    "clear:sr": "rimraf server-render-dist",
-    "build:sr-client": "webpack --config server-render-config/webpack.prod.js",
-    "build:sr-ssr": "webpack --config server-render-config/webpack.ssr.js",
-    "build:sr": "npm run clear:sr && npm run build:sr-client && npm run build:sr-ssr",
-    "start": "node server/app1.js",
-    "dev:sr": "cross-env NODE_ENV=development webpack-dev-server --config server-render-config/webpack.dev.js",
-    "dev:server": "cross-env NODE_ENV=development node server/app1.js"
+    "clear": "rimraf dist",
+    "dev:client": "webpack-dev-server --config config/webpack.dev.js",
+    "dev:ssr": "cross-env NODE_ENV=development nodemon server/app.js",
+    "dev": "npm run clear && start npm run dev:client &&start npm run dev:ssr",
+    "build:client": "webpack --config config/webpack.prod.js",
+    "build:ssr": "webpack --config config/webpack.ssr.js",
+    "build": "npm run clear && npm run build:client && npm run build:ssr",
+    "start": "nodemon server/app.js"
   },
   "pre-commit": [
     "fix",
@@ -23,44 +21,38 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hfimy/react-cnode.git"
+    "url": "git+https://github.com/Hfimy/react-ssr-template.git"
   },
   "author": "hfimy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Hfimy/react-cnode/issues"
+    "url": "https://github.com/Hfimy/react-ssr-template/issues"
   },
-  "homepage": "https://github.com/Hfimy/react-cnode#readme",
+  "homepage": "https://github.com/Hfimy/react-ssr-template#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.1.2",
+    "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.17",
     "cross-env": "^5.1.3",
     "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
     "html-webpack-plugin": "^2.30.1",
-    "http-proxy-middleware": "^0.17.4",
-    "koa-proxy2": "^0.11.0",
-    "koa2-proxy": "^1.1.7",
+    "nodemon": "^1.14.10",
     "pre-commit": "^1.2.2",
     "react-hot-loader": "^3.1.3",
     "rimraf": "^2.6.2",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.10.0",
+    "webpack-dev-server": "^2.10.1",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "axios": "^0.17.1",
-    "express": "^4.16.2",
-    "koa": "^2.4.1",
-    "koa-mount": "^3.0.0",
-    "koa-router": "^7.3.0",
-    "koa-static": "^4.0.2",
-    "koa-static-plus": "^0.1.1",
-    "memory-fs": "^0.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   }

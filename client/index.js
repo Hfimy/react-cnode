@@ -1,18 +1,11 @@
-/* eslint-disable*/
-import React, { Component } from 'react';//eslint-disable-line
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';//eslint-disable-line
-import { AppContainer } from 'react-hot-loader';
-
+import { AppContainer } from 'react-hot-loader';//eslint-disable-line
+import App from './App';
 
 const root = document.getElementById('root');
-const render = Component => {
-    ReactDOM.render(
-        <AppContainer>
-            <Component />
-        </AppContainer>,
-        root
-    );
+const render = Component => { //eslint-disable-line
+    ReactDOM.hydrate(<AppContainer><Component /></AppContainer>, root);
 };
 
 render(App);
