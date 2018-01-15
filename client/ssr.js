@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './App';
+import App from './route';
 
 export default <App />;
-// module.exports=<App/>;
+// module.exports=<App/>; //报错

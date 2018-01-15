@@ -7,10 +7,14 @@
                     "browsers": "last 2 versions",
                     "node": "current"
                 },
-                "modules":false
+                "modules": false
             }
         ],
+        "stage-1",
         "react"
     ],
-    "plugins":["react-hot-loader/babel"]
+    "plugins": [
+        "transform-decorators-legacy",
+        "react-hot-loader/babel"
+    ]
 }

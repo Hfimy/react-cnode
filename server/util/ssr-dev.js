@@ -1,7 +1,7 @@
 /*eslint-disable*/
 const path = require('path');
 const webpack = require('webpack');
-const config = require('../../config/webpack.ssr');
+const config = require('../../webpack/webpack.ssr');
 const ReactDOMServer = require('react-dom/server');
 
 const axios = require('axios');

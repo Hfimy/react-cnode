@@ -6,7 +6,7 @@ const favicon = require('koa-favicon');
 
 const app = new Koa();
 
-app.use(favicon(path.resolve(__dirname, '../client/favicon.ico')));
+app.use(favicon(path.resolve(__dirname, './favicon.ico')));
 
 const isDev = process.env.NODE_ENV === 'development';
 if (isDev) {

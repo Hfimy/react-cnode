@@ -11,12 +11,12 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                enforce: 'pre',
-                test: /.jsx?/,
-                loader: 'eslint-loader',
-                include: path.resolve(__dirname, '../client'),
-            },
+            // {
+            //     enforce: 'pre',
+            //     test: /.jsx?/,
+            //     loader: 'eslint-loader',
+            //     include: path.resolve(__dirname, '../client'),
+            // },
             {
                 test: /.jsx?$/,
                 include: path.resolve(__dirname, '../client'),

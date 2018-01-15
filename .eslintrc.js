@@ -43,5 +43,7 @@ module.exports = {
             }
         ],
         "react/jsx-filename-extension": [0],
+        "react/jsx-indent":[0],
+        "import/no-extraneous-dependencies":[0],
     }
 };

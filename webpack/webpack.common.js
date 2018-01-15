@@ -14,14 +14,17 @@ module.exports = {
         filename: '[name].[hash:8].js',
         publicPath: '/public/', // 输出目录对应的URL前缀
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
     module: {
         rules: [
-            { // 编译之前强制进行代码检查
-                enforce: 'pre',
-                test: /.jsx?/,
-                loader: 'eslint-loader',
-                include: path.resolve(__dirname, '../client'),
-            },
+            // { // 编译之前强制进行代码检查
+            //     enforce: 'pre',
+            //     test: /.jsx?/,
+            //     loader: 'eslint-loader',
+            //     include: path.resolve(__dirname, '../client'),
+            // },
             {
                 test: /.jsx?$/,
                 include: path.resolve(__dirname, '../client'),
