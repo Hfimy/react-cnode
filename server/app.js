@@ -3,10 +3,17 @@ const path = require('path');
 const Koa = require('koa');
 const router = require('koa-router')();
 const favicon = require('koa-favicon');
-
+const bodyParser = require('koa-bodyparser')
+const session = require('koa-session');
 const app = new Koa();
 
 app.use(favicon(path.resolve(__dirname, './favicon.ico')));
+app.use(bodyParser())  //默认json、form
+app.use(session({
+    maxAge: 10 * 60 * 1000,
+    overwrite:false,
+
+}))
 
 const isDev = process.env.NODE_ENV === 'development';
 if (isDev) {
@@ -20,7 +27,7 @@ if (isDev) {
             },
         ],
     }));
-    const ssrDev = require('./util/ssr-dev');
+    const ssrDev = require('./util/ssrDev');
     ssrDev(router);
 } else {
     // 生产环境
