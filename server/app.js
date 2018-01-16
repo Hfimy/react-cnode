@@ -9,11 +9,17 @@ const app = new Koa();
 
 app.use(favicon(path.resolve(__dirname, './favicon.ico')));
 app.use(bodyParser())  //默认json、form
-app.use(session({
-    maxAge: 10 * 60 * 1000,
-    overwrite:false,
 
+app.use(session({
+    key: 'sid',
+    maxAge: 10 * 60 * 1000,
+    overwrite: false, //重写
+    rolling: false,  //强制在每个响应中保存
 }))
+
+router.use('/api/user',()=>require('./util/login')(router));
+
+app.use(router.routes());
 
 const isDev = process.env.NODE_ENV === 'development';
 if (isDev) {
@@ -47,8 +53,6 @@ if (isDev) {
         ctx.body = template.replace('<!-- app -->', content);
     });
 }
-
-app.use(router.routes());
 
 app.listen(520, () => {
     console.log('server is running at http://localhost:520');//eslint-disable-line

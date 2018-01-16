@@ -1,44 +1,45 @@
-const baseUrl='http://cnodejs.org/api/v1'
+/*eslint-disable*/
+const axios = require('axios');
 
-module.exports=(req,res,next)=>{
-    const path=req.path;
-    const user=req.session.user||{}
-    const needAccessToken=req.query.needAccessToken
+const baseUrl = 'http://cnodejs.org/api/v1';
 
-    if(needAccessToken&&user.accessToken){
+module.exports = (router) => {
+    const user = req.session.user || {};
+    const needAccessToken = req.query.needAccessToken;
+
+    if (needAccessToken && user.accessToken) {
         res.status(401).send({
-            success:false,
-            msg:'nedd login'
-        })
+            success: false,
+            msg: 'nedd login',
+        });
     }
-}
+};
 
-const query=Object.assign({},req.query)
-if(query.needAccessToken)
-delete query.needAccessToken
+const query = Object.assign({}, req.query);
+if (query.needAccessToken) { delete query.needAccessToken; }
 
-axios(`${baseUrl}${patch}`,{
-    method:req.method,
-    params:query,
-    data:Object.assign({},req.body,{
-        accessToken:user.accessToken
+axios(`${baseUrl}${patch}`, {
+    method: req.method,
+    params: query,
+    data: Object.assign({}, req.body, {
+        accessToken: user.accessToken,
     }),
-    headers:{
-        'Content-type':'application/x-www-form-urlencoded'
+    headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+    },
+}).then((resp) => {
+    if (resp.status === 200) {
+        res.send(resp.data);
+    } else {
+        res.status(resp.status).send(resp.data);
     }
-}).then(resp=>{
-    if(resp.status===200){
-        res.send(resp.data)
-    }else{
-        res.status(resp.status).send(resp.data)
-    }
-}).catch(err=>{
-    if(err.response){
-        res.status(500).send(err.response.data)
-    }else{
+}).catch((err) => {
+    if (err.response) {
+        res.status(500).send(err.response.data);
+    } else {
         res.status(500).send({
-            success:false,
-            data:err.response
-        })
+            success: false,
+            data: err.response,
+        });
     }
-})
+});
